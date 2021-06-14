@@ -1,0 +1,114 @@
+@font-face {
+  font-family: "Arabic-med";
+  src: url("../assets/font/Loew\ Next\ Arabic\ Medium.otf");
+}
+
+@font-face {
+  font-family: "Arabic-bold";
+  src: url("../assets/font/Loew\ Next\ Arabic\ ExtraBold.otf");
+}
+
+//  Global class
+$primaryColor: #4b57c2;
+$secondColor: #464343;
+$thirdColor: #c9c9c9;
+
+$bigTitle : 57px ; 
+$medTitle : 50px ; 
+
+$heading-1: 25px;
+$heading-2: 18px;
+
+$txt-1: 15px;
+$txt-2: 13px;
+
+.title-1 {
+  font-size: $heading-1;
+}
+
+.title-2 {
+  font-size: $heading-2;
+}
+
+.bigTitle {
+  font-size: $bigTitle ;
+}
+
+.medTitle {
+  font-size: $medTitle ;
+}
+
+.txt-center {
+     text-align: center ;
+}
+
+.txt-1 {
+  font-size: $txt-1;
+}
+
+.txt-2 {
+  font-size: $txt-2;
+}
+
+
+.main-color {
+  color: $primaryColor;
+}
+
+.second-color {
+  color: $secondColor;
+}
+
+.third-color {
+  color: $thirdColor;
+}
+
+.main-bg {
+  background-color: $primaryColor;
+}
+
+.second-bg {
+  background-color: $secondColor;
+}
+
+.third-bg {
+  background-color: $thirdColor;
+}
+
+
+
+.py-2 {
+    padding: 2rem 0 ;
+}
+
+.pl-2 {
+    padding-left: 2rem ;
+}
+
+.pr-2 {
+    padding-right: 2rem ;
+}
+
+@mixin fontMed {
+        font-family: 'Arabic-med';
+        font-weight: 500 ;
+}
+
+@mixin fontBold {
+        font-family: 'Arabic-bold';
+        font-weight: 700 ;
+}
+
+
+@mixin flex( $just : center , $align : center , $dir : row , ) {
+    display: flex ;
+    justify-content: $just ;
+    align-items: $align ; 
+    flex-direction: $dir ;
+}
+
+
+
+.flex-center{
+    @include flex ; 
+}

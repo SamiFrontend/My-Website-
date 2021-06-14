@@ -1,0 +1,483 @@
+@import "./global.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  @include fontMed;
+  box-sizing: border-box;
+}
+
+ul,
+a {
+  text-decoration: none;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+body,
+html {
+  min-height: 100%;
+  width: 100%;
+  direction: rtl;
+}
+
+.section-content {
+  min-height: 100%;
+  width: 100%;
+}
+
+.clean-hack {
+  clear: both;
+}
+
+.menu{
+  display: none ;
+}
+
+.navigation {
+  padding: 2rem 10px;
+  border-bottom: 1px solid #f1f1f1 ;
+  position: sticky ;
+  background-color: white ;
+  z-index: 1000 ;
+  top: 0 ;
+  .content-nav {
+    @include flex(space-between);
+    position: relative;
+  }
+
+  .list-link {
+    .close-button{
+      display: none ; 
+    }
+    @include flex(space-between);
+    flex-grow: 1;
+    max-width: 600px;
+    flex-wrap: wrap;
+    .active a {
+      color: $primaryColor;
+    }
+  }
+
+  .link {
+    @include fontMed;
+    font-size: $txt-1;
+  }
+
+  .brand {
+    font-size: $heading-1;
+    @include fontBold;
+  }
+}
+
+.link {
+  color: #1d1d1d;
+  transition: color 0.2s ease;
+  &:hover {
+    color: $primaryColor;
+  }
+}
+
+.container {
+  display: block;
+  max-width: 1320px;
+  margin: 0 auto;
+  min-height: 100%;
+}
+
+.body-content {
+  margin: 0 auto;
+  max-width: 750px;
+  padding: 1em 0;
+  box-sizing: border-box;
+  .container {
+    @include flex;
+    flex-direction: column;
+  }
+
+  .heading {
+    font-size: $bigTitle;
+    margin: 0 auto 2rem;
+    display: inline-block;
+    .address-name,
+    .address-name span {
+      font-size: 0.9em;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .title {
+      font-size: 1em;
+      @include fontBold;
+    }
+
+    .title-ar {
+      font-size: 1.1em;
+      margin: -23px 0;
+    }
+
+    .title-en {
+      letter-spacing: -3px;
+      font-size: 0.84em;
+      color: rgb(104, 104, 104);
+    }
+  }
+
+  .para {
+    font-size: $txt-1;
+    color: rgb(98, 98, 98);
+    text-align: center;
+    line-height: 2.8;
+  }
+}
+
+.footer-content {
+  padding: 3em 0;
+  box-sizing: border-box;
+  .bg-bunner {
+    width: 600px;
+    display: inline-block;
+    height: auto;
+    filter: grayscale(1);
+  }
+
+  .list-color {
+    display: flex;
+    float: left;
+    width: calc(100% - 600px);
+    height: 401px;
+    .item-color {
+      flex-basis: 98px;
+      display: block;
+    }
+  }
+}
+
+.title-main {
+  font-size: $bigTitle;
+  @include fontBold;
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: -0.5em;
+    height: 0.2em;
+    background-color: $primaryColor;
+    width: 2.5em;
+  }
+}
+
+.section-skill {
+  .body-content {
+    max-width: 85%;
+  }
+}
+
+
+.list-skills {
+  @include flex;
+  flex-wrap: wrap;
+  padding: 9em 0 2em;
+  width: 100%;
+  .skill-item {
+    font-size: 16px;
+    padding: 13px 1.5em;
+    box-shadow: 2px 9px 20px -9px rgba(0, 0, 0, 0.22);
+    text-align: center;
+    flex-basis: 136px;
+    border-radius: 5px;
+    height: 150px;
+    @include flex(center, center, column);
+    margin: 1em;
+    img {
+      width: 75%;
+      flex-grow: 1;
+      object-fit: contain;
+    }
+  }
+}
+
+$current : 1 ; 
+$imageSkill : 'js.png' , 'webpack.svg' ,'asp.svg' , 'sass.svg' , 'css.svg' , 'html.svg' , 'node.svg' , 'jquery.svg' , 'mongodb.svg' , 'xd.svg' , 'github.svg' ;
+
+@each $image in $imageSkill {
+  .list-skills .skill-item:nth-child(#{ $current }) .image-skill{
+    width: 100% ;
+    height: 100% ;
+    background-image: url("../assets/icon/#{ $image }");
+    background-size: cover ;
+  } 
+
+  $current : $current + 1 ; 
+}
+
+$sizeCircle: 15px;
+$radiusBunner: 10px;
+
+.bunner-log {
+  margin: 0 auto;
+  width: 420px;
+  background-color: #393737;
+  border-radius: $radiusBunner;
+  color: white;
+  padding: 0;
+  .head-bunner {
+    background-color: #505050;
+    display: flex;
+    align-items: center;
+    padding: 0.6em 1em;
+    border-radius: $radiusBunner $radiusBunner 0 0;
+    .circle {
+      display: inline-block;
+      width: $sizeCircle;
+      height: $sizeCircle;
+      border-radius: 50%;
+      margin-left: 5px;
+    }
+
+    .circle:nth-child(1) {
+      background-color: #eb4040;
+    }
+    .circle:nth-child(2) {
+      background-color: #d1aa28;
+    }
+    .circle:nth-child(3) {
+      background-color: #25bc67;
+    }
+  }
+
+  #codeWrite {
+    padding: 2rem 3em;
+    text-align: left;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    span {
+      font-family: inherit;
+      font-size: 95%;
+      color: #da7e20;
+    }
+  }
+}
+
+.content-project {
+  display: flex;
+  height: 100%;
+  padding: 3em 0;
+
+  .project {
+    flex-basis: 60%;
+    padding: 5rem 0 0;
+  }
+
+  .image-project {
+    width: 89%;
+    border-radius: 10px;
+    background-color: gray;
+    height: 530px;
+  }
+
+  .title-project {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-grow: 1;
+    font-size: $medTitle;
+    .name-project {
+      font-size: 1em;
+      line-height: 1.5;
+    }
+    .link-project {
+      font-size: $txt-1;
+      margin-top: 2rem;
+      @include flex(flex-start);
+      width: 220px;
+    }
+
+    .arrow-icon {
+      display: inline-block;
+      width: 45px;
+      transform: rotateY(180deg);
+      margin-right: 25px;
+    }
+  }
+}
+
+.about-me {
+  .about-content {
+    margin: 5rem 0;
+    .image {
+      @include flex(flex-start);
+      .img-me {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 1px solid #f1f1f1;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: inherit;
+          object-position: top;
+        }
+      }
+
+      .about {
+        margin-right: 20px;
+        .my-name {
+          margin-bottom: 5px;
+          font-size: $heading-2;
+          @include fontBold;
+        }
+      }
+    }
+  }
+}
+
+.second-desc {
+  color: grey;
+}
+
+.question-section {
+  margin: 2rem 0;
+  border-radius: 10px;
+  box-shadow: 2px 9px 20px -9px rgba(0, 0, 0, 0.1);
+  padding: 2em 3em;
+  .question-txt {
+    @include fontBold;
+    font-size: $heading-2;
+    margin-bottom: 10px;
+    color: $primaryColor 
+  }
+
+  .answer {
+    @extend .second-desc;
+    line-height: 2.8;
+  }
+
+  .list-answer {
+    list-style: disc;
+    margin-right: 20px;
+  }
+}
+
+.container-last {
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.ftr {
+  background-color: $secondColor;
+  padding: 4rem 0 5rem ;
+
+  .title-main{
+      color: white ;
+      margin-top: -1rem ;
+  }
+
+  .container {
+    display: flex;
+  }
+
+  .list-contact {
+    @include flex;
+    flex-grow: 1 ;
+    .item {
+      margin:  0 4rem ;
+      .item-link {
+        color: white;
+        .label {
+          @include flex(flex-end);
+          margin-bottom: 10px ;
+          .title{
+              color: #f1f1f1 ;
+          }
+          img {
+            width: 26px;
+            height: 26px;
+            margin-right: 10px ;
+          }
+        }
+
+        .desc{
+            font-size: $txt-1 ;
+            text-align: left;
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width : 450px ) {
+  .brand{
+    margin-right: auto ;
+  }
+  .menu{
+    display: block ;
+    position: absolute;
+    width: 19px ;
+    height: 19px ;
+    margin-right: 5px ;
+    cursor: pointer;
+    img{
+      width: 100% ;
+      height: 100% ;
+    }
+  }
+
+  .list-link{
+    display: none !important ;
+    position: relative;
+    right: -112px;
+  }
+
+   .list-link.active{
+    position: absolute;
+    width: 109%;
+    height: 100vh;
+    background: white;
+    top: 0;
+    flex-direction: column !important;
+    right: -12px !important;
+    padding: 1rem ;
+    overflow: hidden ;
+    box-sizing: content-box ;
+    justify-content: flex-start !important ;
+    align-items: flex-start !important ;
+    & > * {
+      margin: 1rem 0 ;
+    }
+
+    .close-button{
+      display: block !important;
+      margin-top: -8rem ;
+      margin-right: auto ;
+      transform: translate(50px , 81px ) !important;
+      button{
+        background-color: transparent ; 
+        border: none ;
+        outline: none ;
+        transition: color .2s ease ;
+        font-size: 44px ;
+        color: #888888 ; 
+        cursor: pointer;
+        &:hover{
+          color: black ;
+        }
+
+      }
+    }
+   }
+}
